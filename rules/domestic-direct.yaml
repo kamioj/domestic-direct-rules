@@ -1,0 +1,35 @@
+# 国内服务直连白名单；只决定匹配范围，不包含 DNS 或断网保护配置。
+# 添加规则后提交 main；校验通过才自动发布到 release 订阅地址。
+# DOMAIN 精确匹配；DOMAIN-SUFFIX 匹配本域及子域。未知域名应继续走代理。
+payload:
+  # 腾讯：按用户确认保留 qq.com 服务体系，非仅中国 IP。
+  - DOMAIN-SUFFIX,qq.com
+  # 网易：门户、邮箱及专用资源。
+  - DOMAIN-SUFFIX,163.com
+  - DOMAIN-SUFFIX,126.com
+  - DOMAIN-SUFFIX,126.net
+  # 京东
+  - DOMAIN-SUFFIX,jd.com
+  - DOMAIN-SUFFIX,360buyimg.com
+  # 淘宝、天猫；不整体放行阿里云、共享 CDN 或支付平台。
+  - DOMAIN-SUFFIX,taobao.com
+  - DOMAIN-SUFFIX,tmall.com
+  # 哔哩哔哩及专用资源
+  - DOMAIN-SUFFIX,bilibili.com
+  - DOMAIN-SUFFIX,hdslb.com
+  - DOMAIN-SUFFIX,biliimg.com
+  - DOMAIN-SUFFIX,bilivideo.com
+  # 美团、大众点评及专用资源
+  - DOMAIN-SUFFIX,meituan.com
+  - DOMAIN-SUFFIX,meituan.net
+  - DOMAIN-SUFFIX,dianping.com
+  # 豆瓣、知乎及专用资源
+  - DOMAIN-SUFFIX,douban.com
+  - DOMAIN-SUFFIX,doubanio.com
+  - DOMAIN-SUFFIX,zhihu.com
+  - DOMAIN-SUFFIX,zhimg.com
+  # 高德地图
+  - DOMAIN-SUFFIX,amap.com
+  - DOMAIN-SUFFIX,autonavi.com
+  # 从原来的整个 cn 后缀收窄到铁路服务。
+  - DOMAIN-SUFFIX,12306.cn

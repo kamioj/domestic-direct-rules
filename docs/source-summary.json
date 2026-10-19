@@ -1,0 +1,127 @@
+{
+  "review_date": "2026-10-19",
+  "source_project": "https://github.com/blackmatrix7/ios_rule_script",
+  "source_header_updated": "2024-11-05 02:13:42",
+  "source_sha256": "1b0c58956c4d274afacf9e3dd69b15dc1f8cb56b59c523f5cfa68fa14b96d736",
+  "actual_rule_count": 101752,
+  "rule_types": {
+    "DOMAIN": 425,
+    "DOMAIN-SUFFIX": 92963,
+    "DOMAIN-KEYWORD": 13,
+    "IP-CIDR": 8337,
+    "PROCESS-NAME": 14
+  },
+  "published_count": 22,
+  "selection": [
+    {
+      "domain": "qq.com",
+      "source_rule": "DOMAIN-SUFFIX,qq.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "163.com",
+      "source_rule": "DOMAIN-SUFFIX,163.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "126.com",
+      "source_rule": "DOMAIN-SUFFIX,126.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "126.net",
+      "source_rule": "DOMAIN-SUFFIX,126.net",
+      "decision": "retained"
+    },
+    {
+      "domain": "jd.com",
+      "source_rule": "DOMAIN-SUFFIX,jd.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "360buyimg.com",
+      "source_rule": "DOMAIN-SUFFIX,360buyimg.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "taobao.com",
+      "source_rule": "DOMAIN-SUFFIX,taobao.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "tmall.com",
+      "source_rule": "DOMAIN-SUFFIX,tmall.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "bilibili.com",
+      "source_rule": "DOMAIN-SUFFIX,bilibili.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "hdslb.com",
+      "source_rule": "DOMAIN-SUFFIX,hdslb.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "biliimg.com",
+      "source_rule": "DOMAIN-SUFFIX,biliimg.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "bilivideo.com",
+      "source_rule": "DOMAIN-SUFFIX,bilivideo.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "meituan.com",
+      "source_rule": "DOMAIN-SUFFIX,meituan.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "meituan.net",
+      "source_rule": "DOMAIN-SUFFIX,meituan.net",
+      "decision": "retained"
+    },
+    {
+      "domain": "dianping.com",
+      "source_rule": "DOMAIN-SUFFIX,dianping.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "douban.com",
+      "source_rule": "DOMAIN-SUFFIX,douban.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "doubanio.com",
+      "source_rule": "DOMAIN-SUFFIX,doubanio.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "zhihu.com",
+      "source_rule": "DOMAIN-SUFFIX,zhihu.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "zhimg.com",
+      "source_rule": "DOMAIN-SUFFIX,zhimg.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "amap.com",
+      "source_rule": "DOMAIN-SUFFIX,amap.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "autonavi.com",
+      "source_rule": "DOMAIN-SUFFIX,autonavi.com",
+      "decision": "retained"
+    },
+    {
+      "domain": "12306.cn",
+      "source_rule": "DOMAIN-SUFFIX,cn",
+      "decision": "narrowed"
+    }
+  ]
+}
