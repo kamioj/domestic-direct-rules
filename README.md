@@ -52,7 +52,7 @@ rules:
 - `qq.com`、`163.com` 等按整域服务体系收录；同一后缀下的新子域也会匹配，需接受该范围。
 - 不使用进程、关键词、IP、ASN、GEOIP、整个顶级域名作为直连条件。
 - 不整包放行共享云、共享 CDN、CF、国外验证码、国外支付或 AI 服务。
-- 校验器同步拦截客户端 AI-Only/Proxy 强制代理域名（含其父域、子域）及 datadog、sentry、linkedin 关键词。客户端 `nameserver-policy` 若绑定本规则集，DNS 分流与规则顺序无关，这些域名必须永远不进本列表；客户端强制代理列表变动时需同步 `scripts/validate.py`。
+- 校验器同步拦截客户端 AI-Only/Proxy 强制代理域名（含其父域、子域）及 datadog、sentry、linkedin 关键词；Cloudflare、Claude/Anthropic、OpenAI/ChatGPT、Google/YouTube 按品牌关键词加专属域名（`NEVER_DIRECT`）拦截，既不直连也不走国内 DNS。客户端 `nameserver-policy` 若绑定本规则集，DNS 分流与规则顺序无关，这些域名必须永远不进本列表；客户端强制代理列表变动时需同步 `scripts/validate.py`。
 - 不自动同步上游新增条目；主分支的新增内容需要人工审核。自动校验只检查结构和已知禁止范围，不能自动证明国内归属。
 - 首版不是国内服务大全，也不保证所列 App 全部依赖均直连。遗漏的依赖继续代理。
 - DNS 出站和代理断线后不直连必须在客户端/系统层另外配置，规则集不能提供此保证。

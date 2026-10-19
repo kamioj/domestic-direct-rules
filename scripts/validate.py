@@ -33,9 +33,28 @@ CLIENT_FORCED_PROXY = {
     'storeedge.microsoft.com', 'graph.microsoft.com', 'edge.microsoft.com',
     'www.microsoft.com', 'dns.google', 'cloudflare-dns.com', 'dns.quad9.net',
 }
-BLOCKED |= CLIENT_FORCED_PROXY
-# Client DOMAIN-KEYWORD,*,Proxy rules: reject any domain containing these.
-BLOCKED_KEYWORDS = ('datadog', 'sentry', 'linkedin')
+# Cloudflare / Claude / OpenAI / Google: never direct, never domestic DNS. Keywords
+# catch new names; this set covers their domains that lack those keywords.
+NEVER_DIRECT = {
+    # Cloudflare
+    'cf-ipfs.com', 'argotunnel.com', 'cfargotunnel.com', 'one.one.one.one',
+    'cfl.re', 'r2.dev',
+    # OpenAI
+    'chat.com',
+    # Google
+    'ggpht.com', 'ytimg.com', 'youtu.be', 'gvt1.com', 'gvt2.com', 'gvt3.com',
+    '1e100.net', 'appspot.com', 'firebaseio.com', 'firebaseapp.com', 'web.app',
+    'doubleclick.net', 'gmail.com', 'android.com', 'chrome.com', 'chromium.org',
+    'g.co', 'goo.gl', 'g.page', 'blogspot.com', 'blogger.com', 'admob.com',
+    'gstatic.cn', 'gkecnapps.cn',
+}
+BLOCKED |= CLIENT_FORCED_PROXY | NEVER_DIRECT
+# Client DOMAIN-KEYWORD,*,Proxy rules plus never-direct brands: reject any domain
+# containing these.
+BLOCKED_KEYWORDS = (
+    'datadog', 'sentry', 'linkedin',
+    'cloudflare', 'claude', 'anthropic', 'openai', 'chatgpt', 'google', 'youtube',
+)
 PUBLIC_SUFFIXES = {'com.cn', 'net.cn', 'org.cn', 'gov.cn', 'edu.cn', 'co.uk', 'com.hk'}
 
 

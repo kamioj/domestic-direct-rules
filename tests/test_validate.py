@@ -29,6 +29,17 @@ class RuleValidationTests(unittest.TestCase):
             with self.subTest(rule=rule), self.assertRaises(ValueError):
                 validator.validate('payload:\n  - ' + rule + '\n')
 
+    def test_reject_never_direct_brands(self):
+        for rule in ['DOMAIN,claude-cdn.example.cn', 'DOMAIN-SUFFIX,anthropic.ai',
+                     'DOMAIN,openaiapi-site.azureedge.net', 'DOMAIN-SUFFIX,chatgpt.net',
+                     'DOMAIN-SUFFIX,chat.com', 'DOMAIN-SUFFIX,cloudflarestorage.com',
+                     'DOMAIN,foo.r2.dev', 'DOMAIN-SUFFIX,one.one.one.one',
+                     'DOMAIN-SUFFIX,google.cn', 'DOMAIN-SUFFIX,googleusercontent.com',
+                     'DOMAIN,i.ytimg.com', 'DOMAIN-SUFFIX,youtube.com',
+                     'DOMAIN-SUFFIX,gstatic.cn', 'DOMAIN,redirector.gvt1.com']:
+            with self.subTest(rule=rule), self.assertRaises(ValueError):
+                validator.validate('payload:\n  - ' + rule + '\n')
+
     def test_forced_proxy_does_not_block_lookalikes(self):
         for rule in ['DOMAIN-SUFFIX,baidu.com', 'DOMAIN-SUFFIX,dfcfw.com',
                      'DOMAIN,download-cf.jetbrains.com']:
