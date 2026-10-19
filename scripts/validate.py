@@ -17,6 +17,25 @@ BLOCKED = {
     'akamaihd.net', 'aliyuncs.com', 'myqcloud.com', 'qcloud.com',
     'alicdn.com', 'doh.pub', 'alidns.com',
 }
+# Client profile AI-Only/Proxy domains (synced 2026-10-19). nameserver-policy binds this
+# ruleset to domestic DNS regardless of rule order, so these must never appear here.
+CLIENT_FORCED_PROXY = {
+    'openaimerge.com', 'ai.com', 'sora.com', 'anthropic.com.cdn.cloudflare.net',
+    'servd-anthropic-website.b-cdn.net', 'anthropic-com.ghost.io',
+    'challenges.cloudflare.com', 'humb.apple.com', 'openaicom.imgix.net',
+    'workos.imgix.net', 'statsig.com', 'statsigapi.net', 'featuregates.org',
+    'featureassets.org', 'prodregistryv2.org', 'livekit.cloud', 'intercom.io',
+    'intercomcdn.com', 'sendgrid.net', 'usefathom.com',
+    'browser-intake-us5-datadoghq.com', 'siftscience.com', 'sift.com',
+    'ghproxy.com', 'githubassets.com', 'npmjs.org', 'npmjs.com', 'pypi.org',
+    'pythonhosted.org', 'okex.com', 'oklink.com', 'okx.com',
+    'self.events.data.microsoft.com', 'mp.microsoft.com',
+    'storeedge.microsoft.com', 'graph.microsoft.com', 'edge.microsoft.com',
+    'www.microsoft.com', 'dns.google', 'cloudflare-dns.com', 'dns.quad9.net',
+}
+BLOCKED |= CLIENT_FORCED_PROXY
+# Client DOMAIN-KEYWORD,*,Proxy rules: reject any domain containing these.
+BLOCKED_KEYWORDS = ('datadog', 'sentry', 'linkedin')
 PUBLIC_SUFFIXES = {'com.cn', 'net.cn', 'org.cn', 'gov.cn', 'edu.cn', 'co.uk', 'com.hk'}
 
 
@@ -53,6 +72,8 @@ def validate(text):
             raise ValueError(f'Line {number}: IP literals forbidden')
         if any(overlaps(domain, blocked) for blocked in BLOCKED):
             raise ValueError(f'Line {number}: protected/shared domain {domain}')
+        if any(keyword in domain for keyword in BLOCKED_KEYWORDS):
+            raise ValueError(f'Line {number}: protected keyword in {domain}')
         record = (kind, domain)
         if record in records:
             raise ValueError(f'Line {number}: duplicate {domain}')

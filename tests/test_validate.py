@@ -20,6 +20,21 @@ class RuleValidationTests(unittest.TestCase):
             with self.subTest(rule=rule), self.assertRaises(ValueError):
                 validator.validate('payload:\n  - ' + rule + '\n')
 
+    def test_reject_client_forced_proxy_domains(self):
+        for rule in ['DOMAIN-SUFFIX,sora.com', 'DOMAIN,api.statsig.com',
+                     'DOMAIN,humb.apple.com', 'DOMAIN-SUFFIX,apple.com',
+                     'DOMAIN-SUFFIX,microsoft.com', 'DOMAIN-SUFFIX,imgix.net',
+                     'DOMAIN-SUFFIX,dns.google', 'DOMAIN,o1.ingest.sentry.io',
+                     'DOMAIN,api.datadoghq.eu', 'DOMAIN-SUFFIX,linkedin.cn']:
+            with self.subTest(rule=rule), self.assertRaises(ValueError):
+                validator.validate('payload:\n  - ' + rule + '\n')
+
+    def test_forced_proxy_does_not_block_lookalikes(self):
+        for rule in ['DOMAIN-SUFFIX,baidu.com', 'DOMAIN-SUFFIX,dfcfw.com',
+                     'DOMAIN,download-cf.jetbrains.com']:
+            with self.subTest(rule=rule):
+                self.assertEqual(len(validator.validate('payload:\n  - ' + rule + '\n')), 1)
+
     def test_reject_bad_yaml_and_duplicates(self):
         for text in ['payload: []', 'payload:\n  - DOMAIN,qq.com\n  - DOMAIN,qq.com',
                      'payload:\n  - DOMAIN-SUFFIX,qq.com\n  - DOMAIN,mail.qq.com',
