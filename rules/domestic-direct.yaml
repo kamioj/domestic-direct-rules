@@ -4,10 +4,30 @@
 payload:
   # 腾讯：按用户确认保留 qq.com 服务体系，非仅中国 IP。
   - DOMAIN-SUFFIX,qq.com
+  # 微信 / 企业微信的补充入口和专用图片主机。
+  - DOMAIN,www.wechat.com
+  - DOMAIN,wx.qlogo.cn
+  - DOMAIN,mmbiz.qpic.cn
+  - DOMAIN,wework.qpic.cn
   # 网易：门户、邮箱及专用资源。
   - DOMAIN-SUFFIX,163.com
   - DOMAIN-SUFFIX,126.com
   - DOMAIN-SUFFIX,126.net
+  # 网易云音乐 music.163.com、music.126.net 已由上面的后缀覆盖。
+  # UU 远程官网直接引用的专用资源与客服；不放行整个 netease.com/qiyukf.com。
+  - DOMAIN,gv.res.netease.com
+  - DOMAIN,uuyc.res.netease.com
+  - DOMAIN,uuyc-res.fp.ps.netease.com
+  - DOMAIN,gameviewer.qiyukf.com
+  # HBuilderX 官方列出的登录、插件、更新及文档主机。
+  - DOMAIN,account.dcloud.net.cn
+  - DOMAIN,ext.dcloud.net.cn
+  - DOMAIN,stream.dcloud.net.cn
+  - DOMAIN,ide.liuyingyong.cn
+  - DOMAIN,ide.dcloud.io
+  - DOMAIN,update.liuyingyong.cn
+  - DOMAIN,download1.dcloud.net.cn
+  - DOMAIN,hx.dcloud.net.cn
   # 京东
   - DOMAIN-SUFFIX,jd.com
   - DOMAIN-SUFFIX,360buyimg.com
@@ -33,3 +53,73 @@ payload:
   - DOMAIN-SUFFIX,autonavi.com
   # 从原来的整个 cn 后缀收窄到铁路服务。
   - DOMAIN-SUFFIX,12306.cn
+  # 飞书主站、专用资源及办公平台；不整体放行字节共享 CDN。
+  - DOMAIN-SUFFIX,feishu.cn
+  - DOMAIN-SUFFIX,feishucdn.com
+  - DOMAIN-SUFFIX,larkoffice.com
+  # 腾讯会议；meeting.qq.com 已由 qq.com 覆盖。
+  - DOMAIN-SUFFIX,meeting.tencent.com
+  # 钉钉核心服务；不整域放行 alicdn.com。
+  - DOMAIN-SUFFIX,dingtalk.com
+  # 东方财富及官网引用的专用资源；不等于交易柜台全覆盖。
+  - DOMAIN-SUFFIX,eastmoney.com
+  - DOMAIN-SUFFIX,dfcfw.com
+  # 同花顺期货通官方下载及产品体系。
+  - DOMAIN-SUFFIX,10jqka.com.cn
+  - DOMAIN,activity.ths123.com
+  # 招商银行薪福通专用入口，不整体放行银行域名。
+  - DOMAIN,xft.cmbchina.com
+  - DOMAIN,xft-global.cmbchina.com
+  # 有道云笔记及官网引用的专用客服。
+  - DOMAIN,note.youdao.com
+  - DOMAIN,youdaonote.qiyukf.com
+  # 抖音主站、官网使用的专用静态/图片资源及明确 API。
+  - DOMAIN-SUFFIX,douyin.com
+  - DOMAIN-SUFFIX,douyinstatic.com
+  - DOMAIN-SUFFIX,douyinpic.com
+  - DOMAIN,aweme.snssdk.com
+  # 汽水音乐官网直接引用的产品与发布主机；douyin.com/douyinpic.com 已覆盖。
+  - DOMAIN,www.qishui.com
+  - DOMAIN,lf-luna.qishui.com
+  - DOMAIN,lf-luna-release.qishui.com
+  # 腾讯视频主站已由 qq.com 覆盖，补官网引用资源主机。
+  - DOMAIN,media-img.puui.qpic.cn
+  - DOMAIN,tv.puui.qpic.cn
+  - DOMAIN,vip.image.video.qpic.cn
+  - DOMAIN,vfiles.gtimg.cn
+  - DOMAIN,vm.gtimg.cn
+  - DOMAIN,wfiles.gtimg.cn
+  # Apipost 入口和官网引用的工作区；测试请求目的地不随进程放行。
+  - DOMAIN-SUFFIX,apipost.cn
+  - DOMAIN,admin.apipost.net
+  - DOMAIN,offline.apipost.net
+  - DOMAIN,workspace.apipost.net
+  # WPS / 金山文档及官网资源。
+  - DOMAIN-SUFFIX,wps.cn
+  - DOMAIN-SUFFIX,kdocs.cn
+  - DOMAIN,kdocs-om.wpscdn.cn
+  - DOMAIN,qn.cache.wpscdn.cn
+  - DOMAIN,volcengine-kdocs-cache.wpscdn.cn
+  # 用户指定的海外工具直连例外：只含账号/下载/插件服务，不含 AI 或项目请求。
+  # IntelliJ IDEA / WebStorm
+  - DOMAIN,www.jetbrains.com
+  - DOMAIN,account.jetbrains.com
+  - DOMAIN,download.jetbrains.com
+  - DOMAIN,download-cf.jetbrains.com
+  - DOMAIN,download-cdn.jetbrains.com
+  - DOMAIN,plugins.jetbrains.com
+  - DOMAIN,downloads.marketplace.jetbrains.com
+  # Navicat：账号、云同步、官网和下载，不改变数据库目标路由。
+  - DOMAIN,www.navicat.com
+  - DOMAIN,dn.navicat.com
+  - DOMAIN,customer.navicat.com
+  - DOMAIN,subscription.navicat.com
+  - DOMAIN,cloud.navicat.com
+  - DOMAIN,sync.navicat.com
+  - DOMAIN,auth.navicat.com
+  - DOMAIN,push.navicat.com
+  # Termius：产品服务，不改变用户 SSH 目标路由。
+  - DOMAIN,termius.com
+  - DOMAIN,www.termius.com
+  - DOMAIN,account.termius.com
+  - DOMAIN,api.termius.com

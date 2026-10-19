@@ -1,5 +1,26 @@
 # 首版筛选记录
 
+## 2026-10-19 OSS Browser / 汽水音乐
+
+见 [oss-qishui-2026-10-19.md](oss-qishui-2026-10-19.md)。汽水音乐新增 3 个官网引用的精确主机，总计 92 条。OSS Browser 等待实际 Endpoint，未加入整域阿里云规则。
+
+## 2026-10-19 Mac 软件补充
+
+用户指定的 Mac 软件已逐项整理，见 [mac-apps-2026-10-19.md](mac-apps-2026-10-19.md)。明确海外工具例外；“华润证书”身份不明确，候选只记录、不加入规则。未对 Mac 实测或部署。
+
+## 2026-10-19 本机常用软件补充
+
+微信、企业微信、网易云音乐、UU 远程、HBuilderX 的本机证据、官方依据及覆盖边界见 [desktop-apps-2026-10-19.md](desktop-apps-2026-10-19.md)。新增 16 条精确主机，合计 41 条；没有新增整域共享 CDN、进程或 IP 规则。
+
+## 2026-10-19 飞书补充
+
+用户要求增加飞书直连域名，新增 feishu.cn、feishucdn.com、larkoffice.com，共计 25 条规则。
+
+- 飞书官方 Rooms 内网文档明确列出 *.feishu.cn、*.feishucdn.com：https://www.feishu.cn/hc/en-US/articles/921458789503-ensure-feishu-rooms-runs-smoothly-on-the-company-intranet
+- 飞书官网集成平台文章使用 anycross.larkoffice.com 文档入口：https://www.feishu.cn/content/anycross-anycross-public-ips
+- 不照搬其中 byteimg.com、snssdk.com、pstatp.com 等共享资源整域；不自动纳入海外 Lark 域名。未命中的依赖继续走代理，本次不保证音视频和所有资源全部直连。
+- 仅完成本地规则与静态校验，未发布订阅，未修改客户端运行配置。
+
 审核日期：2026-10-19（Asia/Shanghai）。
 
 ## 候选来源
